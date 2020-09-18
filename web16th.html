@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Image follows mouse</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="image">
+      <img src="logo.png" width="150px" height="150px">
+
+    </div>
+    <script>
+      var imgmovement=document.getElementsByClassName("image");
+      document.onmousemove=function(){
+        var x=event.clientX*100/window.innerWidth + "%";
+        //event.clientX to get horizontal coordinate of the mouse
+        var y=event.clientY*100/window.innerHeight + "%";
+        //event.clientY to get vertical coordinate of the mouse
+
+
+        //window.innerWidth to get browser width
+        //window.innerHeight to get browser height
+
+        for(var i=0;i<2;i++){
+          imgmovement[i].style.left=x;
+          imgmovement[i].style.top=y;
+          imgmovement[i].style.transform="translate(-"+x+",-"+y+")";
+        }
+      }
+    </script>
+  </body>
+
+      
